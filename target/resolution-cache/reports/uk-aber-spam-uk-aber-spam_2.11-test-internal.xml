@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="test-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20140621154518"/>
+		date="20140621180241"/>
 	<dependencies>
 		<module organisation="com.typesafe.play.plugins" name="play-plugins-mailer_2.11">
 			<revision name="2.3.0" status="release" pubdate="20140618064736" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="64">

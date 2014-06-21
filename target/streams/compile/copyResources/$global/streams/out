@@ -1,4 +1,4 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/Users/TarcioMac/Development/PlayProjects/uk.aber.SPAM/conf/application.conf,/Users/TarcioMac/Development/PlayProjects/uk.aber.SPAM/target/scala-2.11/classes/application.conf)[0m
-[0m[[0mdebug[0m] [0m	(/Users/TarcioMac/Development/PlayProjects/uk.aber.SPAM/conf/play.plugins,/Users/TarcioMac/Development/PlayProjects/uk.aber.SPAM/target/scala-2.11/classes/play.plugins)[0m
-[0m[[0mdebug[0m] [0m	(/Users/TarcioMac/Development/PlayProjects/uk.aber.SPAM/conf/routes,/Users/TarcioMac/Development/PlayProjects/uk.aber.SPAM/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/Users/TarcioMac/Development/PlayProjects/uk.aber.spam/conf/application.conf,/Users/TarcioMac/Development/PlayProjects/uk.aber.spam/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/Users/TarcioMac/Development/PlayProjects/uk.aber.spam/conf/play.plugins,/Users/TarcioMac/Development/PlayProjects/uk.aber.spam/target/scala-2.11/classes/play.plugins)[0m
+[0m[[0mdebug[0m] [0m	(/Users/TarcioMac/Development/PlayProjects/uk.aber.spam/conf/routes,/Users/TarcioMac/Development/PlayProjects/uk.aber.spam/target/scala-2.11/classes/routes)[0m

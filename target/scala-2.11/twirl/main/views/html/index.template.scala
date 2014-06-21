@@ -33,8 +33,9 @@ Seq[Any](format.raw/*1.19*/("""
     """),format.raw/*5.5*/("""<p>Welcome, this is the first step to the SPAM application!</p>
     <p>Email plugin configured.</p>
     <p>Oracle database configured.</p>
+    <p>Integrated with GitHub.</p>
 
-""")))}),format.raw/*9.2*/("""
+""")))}),format.raw/*10.2*/("""
 """))}
   }
 
@@ -47,11 +48,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Sat Jun 21 17:29:49 BST 2014
-                  SOURCE: /Users/TarcioMac/Development/PlayProjects/uk.aber.SPAM/app/views/index.scala.html
-                  HASH: e7e34966804154b0a150a5e63beb5a2f7119b19f
-                  MATRIX: 723->1|828->18|856->21|876->33|915->35|947->41|1117->182
-                  LINES: 26->1|29->1|31->3|31->3|31->3|33->5|37->9
+                  DATE: Sat Jun 21 18:06:30 BST 2014
+                  SOURCE: /Users/TarcioMac/Development/PlayProjects/uk.aber.spam/app/views/index.scala.html
+                  HASH: d5de8e712088046e1418ca6e839196b0b63b4e3e
+                  MATRIX: 723->1|828->18|856->21|876->33|915->35|947->41|1153->217
+                  LINES: 26->1|29->1|31->3|31->3|31->3|33->5|38->10
                   -- GENERATED --
               */
           
