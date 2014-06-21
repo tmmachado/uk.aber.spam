@@ -1,0 +1,15 @@
+2014-06-21 17:28:53,428 - [INFO] - from play in pool-4-thread-4 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2014-06-21 17:28:59,967 - [INFO] - from play in play-internal-execution-context-1 
+database [spam] connected at jdbc:oracle:thin:@//192.168.56.101/xe
+
+2014-06-21 17:29:00,416 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-06-21 17:29:53,708 - [INFO] - from play in play-internal-execution-context-1 
+database [spam] connected at jdbc:oracle:thin:@//192.168.56.101/xe
+
+2014-06-21 17:29:53,728 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+

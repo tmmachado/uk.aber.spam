@@ -1,0 +1,38 @@
+To send an email we have to import a plugin called Mailer.
+
+1 - The line: "com.typesafe.play.plugins" %% "play-plugins-mailer" % "2.3.0" must be added at the libraryDependencies in the Build.sbt file of the project.
+2 - A text file called play.plugins must be created at the conf folder.
+3 - The line: 1500:com.typesafe.plugin.CommonsMailerPlugin must be added in the created file.
+4 - Run the project. If it doesn't work, added the following to the build.sbt at the end of the document:
+
+publishTo <<= (version) { version: String =>
+  val nexus = "https://private-repo.typesafe.com/typesafe/"
+  if (version.trim.endsWith("SNAPSHOT")) Some("snapshots" at nexus + "maven-snapshots/") 
+  else                                   Some("releases"  at nexus + "maven-releases/")
+}
+ 
+javacOptions ++= Seq("-source", "1.6", "-target", "1.6", "-Xlint:unchecked", "-encoding", "UTF-8")
+
+scalacOptions += "-deprecation"
+
+After doing this close eclipse and go to next step.
+
+5 - Eclipsiy again the project.
+6 - Refresh the folder of the project in Eclipse.
+7 - Set up the smtp. Go to application.conf file at conf directory in eclipse.
+That's the configuration to set up gmail.
+smtp.host=smtp.gmail.com
+smtp.port=587
+smtp.ssl=yes
+smtp.user="raulperesgoes@gmail.com"
+smtp.password="secret"
+
+8 - Finally, set up the object to send the email. At the Result method in the Application.java
+
+MailerAPI mail = play.Play.application().plugin(MailerPlugin.class).email();
+    	mail.setSubject("mailer");
+    	mail.setRecipient("raulperesgoes@gmail.com");
+    	mail.setFrom("raulperesgoes@gmail.com");
+    	
+    	//sends text/text
+    	mail.send( "Hello World! :)" );
