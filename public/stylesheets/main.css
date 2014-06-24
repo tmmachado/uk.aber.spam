@@ -1,0 +1,6 @@
+table#student_report, table#student_report th, table#student_report td, table#student_report tr{
+	border:1px solid black;
+	border-collapse:collapse;
+	padding:0 10px;
+}
+	

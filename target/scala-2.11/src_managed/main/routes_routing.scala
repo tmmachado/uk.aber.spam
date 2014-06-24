@@ -1,6 +1,6 @@
-// @SOURCE:/Users/TarcioMac/Development/PlayProjects/uk.aber.SPAM/conf/routes
-// @HASH:b31e3ed4075748bc0576b3b7654b92b97f9d84ad
-// @DATE:Sat Jun 21 15:14:54 BST 2014
+// @SOURCE:/Users/TarcioMac/Development/PlayProjects/uk.aber.spam/conf/routes
+// @HASH:739d5082efc31b8def03976f71f4fccb5319f4b1
+// @DATE:Tue Jun 24 11:44:24 BST 2014
 
 
 import play.core._
@@ -39,13 +39,20 @@ controllers.Application.index(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "index", Nil,"GET", """ Home page""", Routes.prefix + """"""))
         
 
-// @LINE:9
-private[this] lazy val controllers_Assets_at1_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
-private[this] lazy val controllers_Assets_at1_invoker = createInvoker(
+// @LINE:7
+private[this] lazy val controllers_Application_report1_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("report"))))
+private[this] lazy val controllers_Application_report1_invoker = createInvoker(
+controllers.Application.report(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "report", Nil,"GET", """""", Routes.prefix + """report"""))
+        
+
+// @LINE:10
+private[this] lazy val controllers_Assets_at2_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at2_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """report""","""controllers.Application.report()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -61,10 +68,18 @@ case controllers_Application_index0_route(params) => {
 }
         
 
-// @LINE:9
-case controllers_Assets_at1_route(params) => {
+// @LINE:7
+case controllers_Application_report1_route(params) => {
+   call { 
+        controllers_Application_report1_invoker.call(controllers.Application.report())
+   }
+}
+        
+
+// @LINE:10
+case controllers_Assets_at2_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at1_invoker.call(controllers.Assets.at(path, file))
+        controllers_Assets_at2_invoker.call(controllers.Assets.at(path, file))
    }
 }
         

@@ -1,6 +1,6 @@
-// @SOURCE:/Users/TarcioMac/Development/PlayProjects/uk.aber.SPAM/conf/routes
-// @HASH:b31e3ed4075748bc0576b3b7654b92b97f9d84ad
-// @DATE:Sat Jun 21 15:14:54 BST 2014
+// @SOURCE:/Users/TarcioMac/Development/PlayProjects/uk.aber.spam/conf/routes
+// @HASH:739d5082efc31b8def03976f71f4fccb5319f4b1
+// @DATE:Tue Jun 24 11:44:24 BST 2014
 
 package controllers;
 

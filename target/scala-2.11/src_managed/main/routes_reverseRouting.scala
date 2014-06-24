@@ -1,6 +1,6 @@
-// @SOURCE:/Users/TarcioMac/Development/PlayProjects/uk.aber.SPAM/conf/routes
-// @HASH:b31e3ed4075748bc0576b3b7654b92b97f9d84ad
-// @DATE:Sat Jun 21 15:14:54 BST 2014
+// @SOURCE:/Users/TarcioMac/Development/PlayProjects/uk.aber.spam/conf/routes
+// @HASH:739d5082efc31b8def03976f71f4fccb5319f4b1
+// @DATE:Tue Jun 24 11:44:24 BST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,15 +15,16 @@ import _root_.play.libs.F
 import Router.queryString
 
 
-// @LINE:9
+// @LINE:10
+// @LINE:7
 // @LINE:6
 package controllers {
 
-// @LINE:9
+// @LINE:10
 class ReverseAssets {
     
 
-// @LINE:9
+// @LINE:10
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
@@ -33,9 +34,17 @@ def at(file:String): Call = {
 }
                           
 
+// @LINE:7
 // @LINE:6
 class ReverseApplication {
     
+
+// @LINE:7
+def report(): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "report")
+}
+                        
 
 // @LINE:6
 def index(): Call = {
@@ -50,16 +59,17 @@ def index(): Call = {
                   
 
 
-// @LINE:9
+// @LINE:10
+// @LINE:7
 // @LINE:6
 package controllers.javascript {
 import ReverseRouteContext.empty
 
-// @LINE:9
+// @LINE:10
 class ReverseAssets {
     
 
-// @LINE:9
+// @LINE:10
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -73,9 +83,21 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:7
 // @LINE:6
 class ReverseApplication {
     
+
+// @LINE:7
+def report : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.report",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "report"})
+      }
+   """
+)
+                        
 
 // @LINE:6
 def index : JavascriptReverseRoute = JavascriptReverseRoute(
@@ -94,16 +116,17 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:9
+// @LINE:10
+// @LINE:7
 // @LINE:6
 package controllers.ref {
 
 
-// @LINE:9
+// @LINE:10
 class ReverseAssets {
     
 
-// @LINE:9
+// @LINE:10
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -112,9 +135,16 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
+// @LINE:7
 // @LINE:6
 class ReverseApplication {
     
+
+// @LINE:7
+def report(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.report(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "report", Seq(), "GET", """""", _prefix + """report""")
+)
+                      
 
 // @LINE:6
 def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
