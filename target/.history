@@ -5,3 +5,11 @@ run
 eclipse
 run
 ~run
+run
+clean
+run
+clean-all
+play clean-all
+activator clean
+clean
+run

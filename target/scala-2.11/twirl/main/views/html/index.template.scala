@@ -28,14 +28,9 @@ object index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Form
 
 Seq[Any](format.raw/*1.19*/("""
 
-"""),_display_(/*3.2*/main("SPAM")/*3.14*/ {_display_(Seq[Any](format.raw/*3.16*/("""
-
-    """),format.raw/*5.5*/("""<p>Welcome, this is the first step to the SPAM application!</p>
-    <p>Email plugin configured.</p>
-    <p>Oracle database configured.</p>
-    <p>Integrated with GitHub.</p>
-
-""")))}),format.raw/*10.2*/("""
+"""),_display_(/*3.2*/main("Index")/*3.15*/(message)/*3.24*/ {_display_(Seq[Any](format.raw/*3.26*/("""
+	"""),format.raw/*4.2*/("""<p>Hello</p>
+""")))}),format.raw/*5.2*/("""
 """))}
   }
 
@@ -48,11 +43,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Sat Jun 21 18:06:30 BST 2014
+                  DATE: Tue Jul 22 17:29:55 BST 2014
                   SOURCE: /Users/TarcioMac/Development/PlayProjects/uk.aber.spam/app/views/index.scala.html
-                  HASH: d5de8e712088046e1418ca6e839196b0b63b4e3e
-                  MATRIX: 723->1|828->18|856->21|876->33|915->35|947->41|1153->217
-                  LINES: 26->1|29->1|31->3|31->3|31->3|33->5|38->10
+                  HASH: eb8ef5d44ad64a30dc1496e0d41883ef9896f1a9
+                  MATRIX: 723->1|828->18|856->21|877->34|894->43|933->45|961->47|1004->61
+                  LINES: 26->1|29->1|31->3|31->3|31->3|31->3|32->4|33->5
                   -- GENERATED --
               */
           

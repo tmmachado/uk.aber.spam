@@ -1,6 +1,119 @@
-table#student_report, table#student_report th, table#student_report td, table#student_report tr{
+.main{
+	margin:0 auto;
+	min-width:800px;
+	width:80%;
 	border:1px solid black;
+}
+.report{
 	border-collapse:collapse;
+	margin:0 auto;
+}
+
+.report, .report th, .report td, .report tr{
 	padding:0 10px;
 }
-	
+
+.report caption{
+	font-size:20px;
+	font-weight:bold;
+	letter-spacing:2px;
+	padding-bottom:20px;
+}
+
+.table-title{
+	text-transform:uppercase;
+}
+
+.report thead{
+	text-transform:uppercase;
+}
+
+.report tbody tr{
+	text-align:center;
+	height:50px;
+	font-size:18px;
+}
+
+#hidden_actions fieldset{
+	border:none;
+	line-height:200%;
+}
+
+#meeting_for{
+	font-weight: bold;
+}
+
+#date, #time{
+	width:110px;
+}
+
+button.btn_filter{
+	font-weight: bold;
+}
+
+.hidden_container{
+	position:absolute;
+	top:113px;
+	left:682px;
+	background-color:gray;
+	display:none;
+}
+
+textarea.outcome{
+	width:520px;
+	height:164px;
+	resize: none;
+}
+
+.invisible-row{
+	display:none;
+}
+
+.visible-row{
+	display:table-row;
+}
+
+.odd-row{
+	background-color: lightgray;
+}
+
+.even-row{
+	background-color: white;
+}
+
+.time-spinner{
+	width:25px;
+    text-align:center;
+}
+
+.example{
+	color:gray;
+	font-size:12px;
+}
+
+.highlight{
+	border:2px solid green;
+}
+
+#progressbar{
+	width:300px;
+	margin:0 auto;
+	display:none;
+}
+
+#feedback{
+	display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,11 +1,10 @@
 package controllers;
 
-import com.typesafe.plugin.MailerAPI;
-import com.typesafe.plugin.MailerPlugin;
-
-import play.*;
-import play.mvc.*;
-import views.html.*;
+import play.mvc.Controller;
+import play.mvc.Result;
+import views.html.index;
+import views.html.student_report;
+import views.html.yt_list;
 
 public class Application extends Controller {
 
@@ -13,23 +12,17 @@ public class Application extends Controller {
         return ok(index.render(""));
     }
     
-    public static Result report() {
-        return ok(student_report.render(""));
+	public static Result studentReport(){
+		String feedback = "";
+		if (session("feedback") != null){
+			feedback = session("feedback");
+			session().remove("feedback");
+		}
+		return ok(student_report.render(feedback));
+    }
+	
+	public static Result ytList(){
+		return ok(yt_list.render(""));
     }
     
-    public static Result sendEmail(){
-    	MailerAPI mail = play.Play.application().plugin(MailerPlugin.class).email();
-    	mail.setFrom("raulperesgoes@gmail.com");
-    	mail.setRecipient("tmm3@aber.ac.uk", "rpg@aber.ac.uk");
-    	mail.setSubject("SPAM - Monthly Report");
-    	//sends text/html
-    	mail.send("", "Dear Year Tutor,<br/><br/>"
-    			+ "Folow the link with the list of unsatisfactory students of last month:<br/><br/>"
-    			+ "<a href='http://localhost:9000/people'>Report (click me)</a><br/><br/>"
-    			+ "Best regards,<br/>"
-    			+ "SPAM Administrator");
-    	
-    	return redirect(routes.Application.index());
-    }
-
 }

@@ -1,0 +1,56 @@
+@(message: String)
+
+@main("Year tutor list")(message) {
+	<script src="@routes.Assets.at("javascripts/script_year_tutor.js")" type="text/javascript"></script>
+	<div class="main">
+	    <table class="report">
+	    	<caption>
+	    		<span class="table-title">Students with more than 50% absence</span>
+	    		<br />
+	    		From last 120 days
+	    	</caption>
+	    	<thead>
+	    		<th>Actions</th>
+	    		<th class="uid">UID</th>
+	    		<th class="name">NAME</th>
+	    		<th class="">REFERENCE</th>
+	    		<th class="sop">STAGE OF PROCESS</th>
+	    		<th class="tutor">TUTOR</th>
+	    		<th class="datetime_meeting">MEETING</th>
+	    		<th class="">OVERALL ATTENDANCE</th>
+	    	</thead>
+	    	<tbody>
+	    	</tbody>
+	    </table>
+	</div>
+
+    <div id="hidden_actions" title="Outcome meeting">
+    	<div id="progressbar"></div>
+		<form id="form_outcome" action="@routes.YearTutorController.updateOutcome()" method="post" >
+			<fieldset>
+				<input type="hidden" name="stud_ref" id="stud_ref" />
+				<input type="hidden" name="id_meeting" id="id_meeting" />
+				<input type="hidden" name="cur_year" id="cur_year" />
+				<input type="hidden" name="year_tutor_uid" id="year_tutor_uid" />
+
+				<span>Student: <span id="meeting_for"></span></span>
+				<br />
+				<input type="checkbox" id="absent" name="absent"/>Tick if student did not come<br />
+				<label for="date">Date</label>
+				<input type="text" name="date" id="date" readonly="readonly"/>
+				<br />
+
+				<label for="hour">Time</label>
+				<input type="text" name="hours" id="hours" readonly="readonly" class="time-spinner" />:
+				<input type="text" name="minutes" id="minutes" readonly="readonly" class="time-spinner" />
+				<span class="example">(08:00 - 18:00)</span>
+				<br />
+
+				<label for="outcome">Outcome</label><br />
+				<textarea id="outcome" name="outcome" class="outcome"></textarea><br />
+
+				<input type="button" id="btn_updateOutcome" value="Submit" />
+			</fieldset>
+		</form>
+    </div>
+}
