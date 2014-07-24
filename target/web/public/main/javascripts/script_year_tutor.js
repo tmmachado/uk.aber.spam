@@ -42,6 +42,7 @@ function openHiddenActionsDialog(btn_column){
 	btn_column.siblings().each(function(index) {
 		if ($(this).attr('class') !== undefined && $(this).attr('class') == "uid"){
 			$("#meeting_for").text($(this).text());
+			$("#stud_uid").val($(this).text());
 		}
 
 		if ($(this).attr('class') !== undefined && $(this).attr('class') == "datetime_meeting"){
@@ -58,7 +59,10 @@ function openHiddenActionsDialog(btn_column){
 
 		if ($(this).attr('class') !== undefined && $(this).attr('class') == "tutor"){
 			$("#year_tutor_uid").val($(this).text());
-			$("#cur_year").val($(this).attr('cur_year'));
+		}
+
+		if ($(this).attr('class') !== undefined && $(this).attr('class') == "name"){
+			$("#stud_name").val($(this).text());
 		}
 	});
 	actions_dialog.dialog("open");

@@ -3,35 +3,46 @@ function getJson(url){
 	var ytUid = "", stdUid = "";
 	var highlight = "";
 	if (location.search){
-		if (location.search.split("&").length > 1){
+		/*if (location.search.split("&").length > 1){
 			ytUid = location.search.split("&")[0].split("=")[1];
 			stdUid = location.search.split("&")[1].split("=")[1];
 		}else{
 			ytUid = location.search.split("=")[1];
+		}*/
+		if (location.search.indexOf("stdUid") != -1){
+			if (location.search.indexOf("&", location.search.indexOf("stdUid") + 7)){
+				stdUid = location.search.substring(location.search.indexOf("stdUid")+7), location.search.indexOf("&", location.search.indexOf("stdUid") + 7);
+			}else{
+				stdUid = location.search.substring(location.search.indexOf("stdUid")+7);
+			}
 		}
 	}
 	switch (url){
 		case "/studentReport":
 			$.getJSON("/json/admin", function( data ) {
 				$.each(data, function(index, val) {
-					if (odd){
-						$(".report tbody").append("<tr class='visible-row odd-row'>");
-						odd = false;
-					} else {
-						$(".report tbody").append("<tr class='visible-row even-row'>");
-						odd = true;
-					}
-					$(".report tbody tr:last-child").append('<td><button class="bt_actions">Meeting</button></td>');
-					$(".report tbody tr:last-child").append('<td yt_uid="'+$(this).get(0)["tutor_id"]+'" yt_name="'+
-						$(this).get(0)["tutor_name"] + '" class="uid">'+$(this).get(0)["email"]+'</td>');
-					$(".report tbody tr:last-child").append('<td class="name">'+$(this).get(0)["name"]+'</td>');
-					$(".report tbody tr:last-child").append('<td class="stud_ref">'+$(this).get(0)["stud_ref"]+'</td>');
-					$(".report tbody tr:last-child").append('<td>'+$(this).get(0)["academic_year"]+'</td>');
-					$(".report tbody tr:last-child").append('<td class="yos">'+$(this).get(0)["ss_year"]+'</td>');
-					$(".report tbody tr:last-child").append('<td class="sop">'+$(this).get(0)["status"]+'</td>');
-					$(".report tbody tr:last-child").append('<td>'+$(this).get(0)["attended"]+'/'+$(this).get(0)["total"]+'</td>');
-					$(".report tbody tr:last-child").append('<td>'+$(this).get(0)["overall"]+'%'+'</td>');
-					$(".report tbody").append('</tr>');
+						if ($(this).get(0)["email"] == stdUid){
+							highlight = "highlight";
+						}
+						if (odd){
+							$(".report tbody").append("<tr class='visible-row odd-row "+highlight+"'>");
+							odd = false;
+						} else {
+							$(".report tbody").append("<tr class='visible-row even-row "+highlight+"'>");
+							odd = true;
+						}
+						highlight = "";
+						$(".report tbody tr:last-child").append('<td><button class="bt_actions">Meeting</button></td>');
+						$(".report tbody tr:last-child").append('<td yt_uid="'+$(this).get(0)["tutor_id"]+'" yt_name="'+
+							$(this).get(0)["tutor_name"] + '" class="uid">'+$(this).get(0)["email"]+'</td>');
+						$(".report tbody tr:last-child").append('<td class="name">'+$(this).get(0)["name"]+'</td>');
+						$(".report tbody tr:last-child").append('<td class="stud_ref">'+$(this).get(0)["stud_ref"]+'</td>');
+						$(".report tbody tr:last-child").append('<td>'+$(this).get(0)["academic_year"]+'</td>');
+						$(".report tbody tr:last-child").append('<td class="yos">'+$(this).get(0)["ss_year"]+'</td>');
+						$(".report tbody tr:last-child").append('<td class="sop">'+$(this).get(0)["stage_of_process"]+'</td>');
+						$(".report tbody tr:last-child").append('<td>'+$(this).get(0)["attended"]+'/'+$(this).get(0)["total"]+'</td>');
+						$(".report tbody tr:last-child").append('<td>'+$(this).get(0)["overall"]+'%'+'</td>');
+						$(".report tbody").append('</tr>');
 				});
 		  	});
 		  	break;
@@ -58,7 +69,7 @@ function getJson(url){
 						$(".report tbody tr:last-child").append('<td class="name">'+$(this).get(0)["name"]+'</td>');
 						$(".report tbody tr:last-child").append('<td class="stud_ref" cur_year="'+$(this).get(0)["academic_year"]
 									+'">'+$(this).get(0)["stud_ref"]+'</td>');
-						$(".report tbody tr:last-child").append('<td class="sop">'+$(this).get(0)["status"]+'</td>');
+						$(".report tbody tr:last-child").append('<td class="sop">'+$(this).get(0)["stage_of_process"]+'</td>');
 						$(".report tbody tr:last-child").append('<td class="tutor">'+$(this).get(0)["tutor_id"]+'</td>');
 						$(".report tbody tr:last-child").append('<td id_meeting="'+$(this).get(0)["id_meeting"]
 									+ '" class="datetime_meeting">'+strToDateTime($(this).get(0)["datetime"])+'</td>');

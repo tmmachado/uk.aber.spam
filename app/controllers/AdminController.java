@@ -38,10 +38,13 @@ public class AdminController extends Controller {
 			
 			ResultSet rs = stmt.executeQuery(
 					"SELECT v.stud_ref, v.name, v.email, v.academic_year, v.ss_year, v.attended, v.total, v.overall,\n " +
-					"v.status, v.tutor_id, v.tutor_name, v.id_meeting, sm.responsible_id, sm.datetime " +
+					"v.stage_of_process, v.tutor_id, v.tutor_name, v.id_meeting, sm.responsible_id, sm.datetime " +
 					"FROM v_student_report v\n " +		
-					"left join spam_meeting sm on (v.id_meeting = sm.id) \n" +
-					"where (sm.DATETIME - SYSTIMESTAMP) < interval '10' minute or sm.DATETIME is null"
+					"left join v_recent_meeting sm on (v.id_meeting = sm.id) \n" +
+					"where ((sm.DATETIME - SYSTIMESTAMP) < interval '10' minute \n"
+					+ " and upper(sm.status) = 'STUDENT NOT ATTENDED') \n" 
+					+ "or sm.DATETIME is null \n" +
+					"order by v.name"
 			);
 			while (rs.next()) {
 	            JSONObject studJSON = new JSONObject();
@@ -53,7 +56,7 @@ public class AdminController extends Controller {
 	            studJSON.put("attended", rs.getString("attended"));
 	            studJSON.put("total", rs.getString("total"));
 	            studJSON.put("overall", rs.getString("overall"));
-	            studJSON.put("status", rs.getString("status"));
+	            studJSON.put("stage_of_process", rs.getString("stage_of_process"));
 	            studJSON.put("tutor_id", rs.getString("tutor_id"));
 	            studJSON.put("tutor_name", rs.getString("tutor_name"));
 	            jArray.add(studJSON);
@@ -73,10 +76,12 @@ public class AdminController extends Controller {
     	
     	try {
 			Statement stmt = null;
+			conn.setAutoCommit(false);
 	    	stmt = conn.createStatement();
+	    	
 	    	String datetime = formArray.get("date") +" "+ formArray.get("hours") + ":" + formArray.get("minutes");
 	    	String sql = 
-	    			"inser into spam_meeting\n " +
+	    			"insert into spam_meeting\n " +
 	    			"(id, stud_ref, responsible_id, datetime, location, arranged_by, datetime_arrangement) values (\n " +
 					"seq_spam_meeting.NEXTVAL,\n '" +
 	    			formArray.get("stud_ref") + "',\n '" +
@@ -91,9 +96,7 @@ public class AdminController extends Controller {
 				feedback = "Meeting arranged successfully!";
 			} else {
 				stmt.executeQuery("rollback");
-				
-				feedback = "Sorry, the meeting has not been arranged.";
-				
+				feedback += "Sorry, the meeting has not been arranged.";
 			}
 	    	
 			//System.out.println(sql);
@@ -132,7 +135,7 @@ public class AdminController extends Controller {
 	    			"<br/><br/>" +
 	    			"Cheers,<br/>The Administrator";
 	    	mail.send("", message);
-	    	System.out.println(message);
+	    	//System.out.println(message);
 	    	return true;
     	} catch (Exception e) {
     		System.out.println("email error");
@@ -158,7 +161,7 @@ public class AdminController extends Controller {
 			    	"<br/><br/>" +
 					"Cheers,<br/>The Administrator";
 	    	mail.send("", message);
-	    	System.out.println(message);
+	    	//System.out.println(message);
 	    	return true;
     	} catch (Exception e) {
     		System.out.println("yt email error\n");

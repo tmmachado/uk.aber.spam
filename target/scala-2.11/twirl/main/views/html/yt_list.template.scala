@@ -57,6 +57,8 @@ Seq[Any](format.raw/*1.19*/("""
 		<form id="form_outcome" action=""""),_display_(/*29.36*/routes/*29.42*/.YearTutorController.updateOutcome()),format.raw/*29.78*/("""" method="post" >
 			<fieldset>
 				<input type="hidden" name="stud_ref" id="stud_ref" />
+				<input type="hidden" name="stud_uid" id="stud_uid" />
+				<input type="hidden" name="stud_name" id="stud_name" />
 				<input type="hidden" name="id_meeting" id="id_meeting" />
 				<input type="hidden" name="cur_year" id="cur_year" />
 				<input type="hidden" name="year_tutor_uid" id="year_tutor_uid" />
@@ -81,7 +83,7 @@ Seq[Any](format.raw/*1.19*/("""
 			</fieldset>
 		</form>
     </div>
-""")))}),format.raw/*56.2*/("""
+""")))}),format.raw/*58.2*/("""
 """))}
   }
 
@@ -94,11 +96,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Tue Jul 22 17:29:55 BST 2014
+                  DATE: Thu Jul 24 11:15:29 BST 2014
                   SOURCE: /Users/TarcioMac/Development/PlayProjects/uk.aber.spam/app/views/yt_list.scala.html
-                  HASH: 9f1a4c652795a99ab5689be3b713b1d31f8c91b6
-                  MATRIX: 725->1|830->18|858->21|889->44|906->53|945->55|973->57|1013->71|1027->77|1093->123|1855->858|1870->864|1927->900|3019->1962
-                  LINES: 26->1|29->1|31->3|31->3|31->3|31->3|32->4|32->4|32->4|32->4|57->29|57->29|57->29|84->56
+                  HASH: 05958b2e061172630e797a92102b39c27b68b46e
+                  MATRIX: 725->1|830->18|858->21|889->44|906->53|945->55|973->57|1013->71|1027->77|1093->123|1855->858|1870->864|1927->900|3137->2080
+                  LINES: 26->1|29->1|31->3|31->3|31->3|31->3|32->4|32->4|32->4|32->4|57->29|57->29|57->29|86->58
                   -- GENERATED --
               */
           
