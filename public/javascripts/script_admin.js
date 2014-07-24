@@ -1,7 +1,10 @@
 var actions_dialog;
 
 $(document).ready(function(){
-	$("#date").datepicker({ dateFormat: "dd/mm/yy" });
+	$("#date").datepicker({
+		dateFormat: "dd/mm/yy",
+		minDate: -0
+	});
 
 	actions_dialog = $("#hidden_actions").dialog({
 	  	modal:true,
@@ -28,8 +31,9 @@ $(document).ready(function(){
 
 	$("#btn_sendEmail").click(function(e) {
 		if ($("#date").val() != "" && $("#location").val() != ""){
-			$("#arrange_meeting").submit();
 			$("#progressbar").css("display", "block");
+			$("#arrange_meeting").submit();
+			$("#btn_sendEmail").prop('disabled', true);
 			return;
 		}
 		alert("You must fill all the fields!");

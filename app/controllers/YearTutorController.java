@@ -21,6 +21,7 @@ import views.html.yt_list;
 public class YearTutorController extends Controller{
 	
 	private static Connection conn;
+	private static String feedback = "";
 	
 	@SuppressWarnings("unchecked")
 	public static Result getJSON() throws SQLException {
@@ -50,6 +51,7 @@ public class YearTutorController extends Controller{
 	            studJSON.put("datetime", rs.getString("datetime"));
 	            studJSON.put("id_meeting", rs.getString("id_meeting"));
 	            studJSON.put("academic_year", rs.getString("academic_year"));
+	            studJSON.put("responsible_id", rs.getString("responsible_id"));
 	            jArray.add(studJSON);
 			}
 			conn.close();
@@ -67,7 +69,8 @@ public class YearTutorController extends Controller{
 		Statement stmt = null;
 		
 		try {
-			conn = DB.getConnection();			
+			conn = DB.getConnection();	
+			conn.setAutoCommit(false);
 			stmt = conn.createStatement();
 			
 			String stud_absent = "student not attended";
@@ -86,20 +89,21 @@ public class YearTutorController extends Controller{
 			
 			if(formArray.get("absent") != null){//student absent
 				String stage_of_proccess = "First time not attended";
-				
 				sql_stage_of_proccess =
 						"update spam_unsatisfactory_student \n" +
-						"set stage_of_process = '" + stage_of_proccess + "' \n" +
-						"where stud_ref = '" +  formArray.get("stud_ref") + 
+						"set stage_of_process = '" + stage_of_proccess + "', \n" +
+						"	 responsible_id = '" + AdminController.DOT_UID + "'\n" +
+						" where stud_ref = '" +  formArray.get("stud_ref") + 
 						"' and curr_year = '"+  formArray.get("cur_year") + "'";
 				
 				sql = sql_meeting + ";\n " + sql_stage_of_proccess;
 				System.out.println(sql);
-				stmt.addBatch(sql_meeting);
-				stmt.addBatch(sql_stage_of_proccess);
+				stmt.executeQuery(sql_meeting);
+				stmt.executeQuery(sql_stage_of_proccess);
 				
-				if(emailAdmin(formArray)){//send an email with student name back to the admin to arrange a new meeting
-					stmt.executeBatch();	
+				//send an email with student name back to the admin to arrange a new meeting
+				if(emailAdmin(formArray)){
+					stmt.executeQuery("commit");
 				}
 			} else {
 				stud_absent = "student attended";
@@ -112,29 +116,31 @@ public class YearTutorController extends Controller{
 				sql = sql_meeting;
 				System.out.println(sql);
 				stmt.executeQuery(sql);
+				stmt.executeQuery("COMMIT");
 			}
 			
-			stmt.executeQuery("COMMIT");
-			
+			feedback = "Submited successfully!";
 			conn.close();
 			
 		} catch (SQLException e) {
 			stmt.executeQuery("ROLLBACK");
+			feedback = "Sorry, an error has occurred while saving the data.\n";
 			conn.close();
 			System.out.println("error update");
+			e.printStackTrace();
 		}
 		
+		session("feedback", feedback);
 		return redirect(routes.Application.ytList()+"?ytUid="+formArray.get("year_tutor_uid"));
 	}
 	
 	public static boolean emailAdmin(DynamicForm formArray){
     	try {
     		
-    		AdminController admin = new AdminController();
     		String std_name = formArray.get("stud_name").split(", ")[1] + " " + formArray.get("stud_name").split(", ")[0];
 	    	MailerAPI mail = play.Play.application().plugin(MailerPlugin.class).email();
-	    	mail.setFrom(admin.ADMIN + admin.EMAIL_DOMAIN);
-	    	mail.setRecipient(admin.ADMIN + admin.EMAIL_DOMAIN);
+	    	mail.setFrom(AdminController.ADMIN + AdminController.EMAIL_DOMAIN);
+	    	mail.setRecipient(AdminController.ADMIN + AdminController.EMAIL_DOMAIN);
 	    	mail.setSubject(std_name);
 	    	String message = 
 	    			"Dear admistrator,<br/><br/>	" +

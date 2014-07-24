@@ -85,7 +85,7 @@ public class AdminController extends Controller {
 	    			"(id, stud_ref, responsible_id, datetime, location, arranged_by, datetime_arrangement) values (\n " +
 					"seq_spam_meeting.NEXTVAL,\n '" +
 	    			formArray.get("stud_ref") + "',\n '" +
-					YT_UID + "',\n " +
+	    			formArray.get("year_tutor_uid") + "',\n " +
 					"TO_TIMESTAMP('"+datetime+ "', 'DD/MM/YYYY HH24:MI'),\n '" +
 					formArray.get("location") + "',\n '" +
 					ADMIN + "',\n " +

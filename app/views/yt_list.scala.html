@@ -38,18 +38,20 @@
 				<span>Student: <span id="meeting_for"></span></span>
 				<br />
 				<input type="checkbox" id="absent" name="absent"/>Tick if student did not come<br />
-				<label for="date">Date</label>
-				<input type="text" name="date" id="date" readonly="readonly"/>
-				<br />
+				<div id="form_group">
+					<label for="date">Date</label>
+					<input type="text" name="date" id="date" readonly="readonly"/>
+					<br />
 
-				<label for="hour">Time</label>
-				<input type="text" name="hours" id="hours" readonly="readonly" class="time-spinner" />:
-				<input type="text" name="minutes" id="minutes" readonly="readonly" class="time-spinner" />
-				<span class="example">(08:00 - 18:00)</span>
-				<br />
+					<label for="hour">Time</label>
+					<input type="text" name="hours" id="hours" readonly="readonly" class="time-spinner" />:
+					<input type="text" name="minutes" id="minutes" readonly="readonly" class="time-spinner" />
+					<span class="example">(08:00 - 18:00)</span>
+					<br />
 
-				<label for="outcome">Outcome</label><br />
-				<textarea id="outcome" name="outcome" class="outcome"></textarea><br />
+					<label for="outcome">Outcome</label><br />
+					<textarea id="outcome" name="outcome" class="outcome"></textarea>
+				</div>
 
 				<input type="button" id="btn_updateOutcome" value="Submit" />
 			</fieldset>

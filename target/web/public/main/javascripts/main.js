@@ -2,18 +2,20 @@ function getJson(url){
 	var odd = true;
 	var ytUid = "", stdUid = "";
 	var highlight = "";
-	if (location.search){
-		/*if (location.search.split("&").length > 1){
-			ytUid = location.search.split("&")[0].split("=")[1];
-			stdUid = location.search.split("&")[1].split("=")[1];
-		}else{
-			ytUid = location.search.split("=")[1];
-		}*/
-		if (location.search.indexOf("stdUid") != -1){
-			if (location.search.indexOf("&", location.search.indexOf("stdUid") + 7)){
-				stdUid = location.search.substring(location.search.indexOf("stdUid")+7), location.search.indexOf("&", location.search.indexOf("stdUid") + 7);
+	var param = location.search;
+	if (param != ""){
+		if (param.indexOf("stdUid") != -1){
+			if (param.indexOf("&", param.indexOf("stdUid") + 7) != -1){
+				stdUid = param.substring(param.indexOf("stdUid")+7, param.indexOf("&", param.indexOf("stdUid") + 7));
 			}else{
-				stdUid = location.search.substring(location.search.indexOf("stdUid")+7);
+				stdUid = param.substring(param.indexOf("stdUid")+7);
+			}
+		}
+		if (param.indexOf("ytUid") != -1){
+			if (param.indexOf("&", param.indexOf("ytUid") + 6) != -1){
+				ytUid = param.substring(param.indexOf("ytUid")+6, param.indexOf("&", param.indexOf("ytUid") + 6));
+			}else{
+				ytUid = param.substring(param.indexOf("ytUid")+6);
 			}
 		}
 	}
@@ -49,7 +51,7 @@ function getJson(url){
 		case "/ytList":
 			$.getJSON("/json/yt", function( data ) {
 				$.each(data, function(index, val) {
-					if ($(this).get(0)["tutor_id"] == ytUid){
+					if ($(this).get(0)["responsible_id"] == ytUid){
 						if ($(this).get(0)["email"] == stdUid){
 							highlight = "highlight";
 						}

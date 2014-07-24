@@ -22,7 +22,12 @@ public class Application extends Controller {
     }
 	
 	public static Result ytList(){
-		return ok(yt_list.render(""));
+		String feedback = "";
+		if (session("feedback") != null){
+			feedback = session("feedback");
+			session().remove("feedback");
+		}
+		return ok(yt_list.render(feedback));
     }
     
 }

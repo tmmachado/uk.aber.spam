@@ -109,3 +109,177 @@ database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
 2014-07-24 11:56:07,183 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
+2014-07-24 12:06:27,021 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 12:06:27,083 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 12:15:59,688 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 12:15:59,752 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 12:18:18,964 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 12:18:19,026 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 12:18:46,101 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 12:18:46,163 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 12:19:44,779 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 12:19:44,840 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 12:20:43,195 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 12:20:43,257 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 12:22:17,703 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 12:22:17,766 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 12:24:11,022 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 12:24:11,082 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 12:26:27,310 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 12:26:27,371 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 13:51:16,338 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 13:51:16,402 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 14:00:25,121 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 14:00:25,182 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 14:02:16,579 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 14:02:16,641 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 14:09:11,823 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 14:09:11,883 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 14:09:54,397 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 14:09:54,457 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 14:10:19,406 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 14:10:19,469 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 14:11:09,620 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 14:11:09,679 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 14:18:18,421 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 14:18:18,481 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 14:28:52,637 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 14:28:52,699 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 14:33:28,991 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 14:33:29,056 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 14:37:25,321 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 14:37:25,380 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 14:40:31,014 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 14:40:31,075 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 15:16:41,097 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 15:16:41,158 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 15:18:08,872 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 15:18:08,935 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 15:26:54,525 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 15:26:54,585 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 15:27:16,048 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 15:27:16,110 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 15:27:16,711 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 15:27:16,773 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 15:27:29,017 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 15:27:29,077 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 15:27:39,145 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 15:27:39,204 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-24 15:28:38,798 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@//oracle.aber.ac.uk/trdb
+
+2014-07-24 15:28:38,858 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+

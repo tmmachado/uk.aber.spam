@@ -21,19 +21,40 @@ $(document).ready(function(){
 		step:10
 	});
 
-	$("#btn_updateOutcome").click(function(e) {
-		//if ($("#outcome").val() != ""){
+	$("#progressbar").progressbar({
+		value: false
+    });
 
-			$("#form_outcome").submit();
-			//return;
-		//}
-		//alert("You must fill all the fields!");
+
+	$("#absent").click(function(e){
+		if($("#absent").prop('checked')){
+			$("#form_group").fadeOut();
+		}else{
+			$("#form_group").fadeIn();
+		}
+		/*var bool = false;
+		if($("#absent").prop('checked')){
+			bool = true;
+		}
+
+		$("#hours").spinner( "option", "disabled", bool);
+		$("#minutes").spinner( "option", "disabled", bool);
+		$("#outcome").prop('disabled', bool);
+		$("#date").prop('disabled', bool);*/
+    });
+
+	$("#btn_updateOutcome").click(function(e) {
+		$("#progressbar").css("display", "block");
+		$("#form_outcome").submit();
+		$("#btn_updateOutcome").prop('disabled', true);
+		return;
 	});
 
 	$(".report").on('click', '.bt_actions', function() {
 	     openHiddenActionsDialog($(this).parent());
 	});
 
+	getFeedback();
 	getJson(location.pathname);
 
 });

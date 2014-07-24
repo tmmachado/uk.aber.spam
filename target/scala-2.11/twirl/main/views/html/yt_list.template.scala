@@ -66,24 +66,26 @@ Seq[Any](format.raw/*1.19*/("""
 				<span>Student: <span id="meeting_for"></span></span>
 				<br />
 				<input type="checkbox" id="absent" name="absent"/>Tick if student did not come<br />
-				<label for="date">Date</label>
-				<input type="text" name="date" id="date" readonly="readonly"/>
-				<br />
+				<div id="form_group">
+					<label for="date">Date</label>
+					<input type="text" name="date" id="date" readonly="readonly"/>
+					<br />
 
-				<label for="hour">Time</label>
-				<input type="text" name="hours" id="hours" readonly="readonly" class="time-spinner" />:
-				<input type="text" name="minutes" id="minutes" readonly="readonly" class="time-spinner" />
-				<span class="example">(08:00 - 18:00)</span>
-				<br />
+					<label for="hour">Time</label>
+					<input type="text" name="hours" id="hours" readonly="readonly" class="time-spinner" />:
+					<input type="text" name="minutes" id="minutes" readonly="readonly" class="time-spinner" />
+					<span class="example">(08:00 - 18:00)</span>
+					<br />
 
-				<label for="outcome">Outcome</label><br />
-				<textarea id="outcome" name="outcome" class="outcome"></textarea><br />
+					<label for="outcome">Outcome</label><br />
+					<textarea id="outcome" name="outcome" class="outcome"></textarea>
+				</div>
 
 				<input type="button" id="btn_updateOutcome" value="Submit" />
 			</fieldset>
 		</form>
     </div>
-""")))}),format.raw/*58.2*/("""
+""")))}),format.raw/*60.2*/("""
 """))}
   }
 
@@ -96,11 +98,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Thu Jul 24 11:15:29 BST 2014
+                  DATE: Thu Jul 24 15:26:53 BST 2014
                   SOURCE: /Users/TarcioMac/Development/PlayProjects/uk.aber.spam/app/views/yt_list.scala.html
-                  HASH: 05958b2e061172630e797a92102b39c27b68b46e
-                  MATRIX: 725->1|830->18|858->21|889->44|906->53|945->55|973->57|1013->71|1027->77|1093->123|1855->858|1870->864|1927->900|3137->2080
-                  LINES: 26->1|29->1|31->3|31->3|31->3|31->3|32->4|32->4|32->4|32->4|57->29|57->29|57->29|86->58
+                  HASH: e69511fcf85bd16623e42bbb0de16cdc204ff2c7
+                  MATRIX: 725->1|830->18|858->21|889->44|906->53|945->55|973->57|1013->71|1027->77|1093->123|1855->858|1870->864|1927->900|3178->2121
+                  LINES: 26->1|29->1|31->3|31->3|31->3|31->3|32->4|32->4|32->4|32->4|57->29|57->29|57->29|88->60
                   -- GENERATED --
               */
           
