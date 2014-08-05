@@ -25,30 +25,39 @@ $(document).ready(function(){
 		value: false
     });
 
+	var clicked = false;
+    $(".report").on('click', '.visible-row', function() {
+    	clicked == false ? $(this).siblings().fadeOut() : $(this).siblings().fadeIn();
+		clicked == false ? clicked = true : clicked = false;
 
-	$("#absent").click(function(e){
-		if($("#absent").prop('checked')){
-			$("#form_group").fadeOut();
-		}else{
-			$("#form_group").fadeIn();
-		}
-		/*var bool = false;
-		if($("#absent").prop('checked')){
-			bool = true;
-		}
-
-		$("#hours").spinner( "option", "disabled", bool);
-		$("#minutes").spinner( "option", "disabled", bool);
-		$("#outcome").prop('disabled', bool);
-		$("#date").prop('disabled', bool);*/
     });
+
+    $(".asc").click(function() {
+		order($(this).parent().attr("class"), "tr", ".report tbody", "asc");
+	});
+
+	$(".desc").click(function() {
+		order($(this).parent().attr("class"), "tr", ".report tbody", "desc");
+	});
 
 	$("#btn_updateOutcome").click(function(e) {
 		$("#progressbar").css("display", "block");
-		$("#form_outcome").submit();
-		$("#btn_updateOutcome").prop('disabled', true);
+		setTimeout(function(){
+			$("#form_outcome").submit();
+			$("#btn_updateOutcome").prop('disabled', true);
+			$("#outcome").prop('disabled', true);
+			$("#date").prop('disabled', true);
+			$("#absent").prop('disabled', true);
+			$("#hours").spinner( "option", "disabled", true );
+			$("#minutes").spinner( "option", "disabled", true );
+		}, 50);
 		return;
 	});
+
+
+
+
+
 
 	$(".report").on('click', '.bt_actions', function() {
 	     openHiddenActionsDialog($(this).parent());
@@ -64,6 +73,7 @@ function openHiddenActionsDialog(btn_column){
 		if ($(this).attr('class') !== undefined && $(this).attr('class') == "uid"){
 			$("#meeting_for").text($(this).text());
 			$("#stud_uid").val($(this).text());
+			$("#responsible_uid").val($(this).attr('responsible_uid'));
 		}
 
 		if ($(this).attr('class') !== undefined && $(this).attr('class') == "datetime_meeting"){
@@ -76,10 +86,6 @@ function openHiddenActionsDialog(btn_column){
 		if ($(this).attr('class') !== undefined && $(this).attr('class') == "stud_ref"){
 			$("#stud_ref").val($(this).text());
 			$("#cur_year").val($(this).attr('cur_year'));
-		}
-
-		if ($(this).attr('class') !== undefined && $(this).attr('class') == "tutor"){
-			$("#year_tutor_uid").val($(this).text());
 		}
 
 		if ($(this).attr('class') !== undefined && $(this).attr('class') == "name"){

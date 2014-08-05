@@ -11,13 +11,24 @@
 	    	</caption>
 	    	<thead>
 	    		<th>Actions</th>
-	    		<th class="uid">UID</th>
-	    		<th class="name">NAME</th>
+	    		<th class="uid">UID<br/>
+	    			<img src="@routes.Assets.at("images/arrowup.png")" title="Order" class="btn_order asc" />
+	    			<img src="@routes.Assets.at("images/arrow-down.png")" title="Order" class="btn_order desc" />
+	    		</th>
+	    		<th class="name">NAME<br/>
+	    			<img src="@routes.Assets.at("images/arrowup.png")" title="Order" class="btn_order asc" />
+	    			<img src="@routes.Assets.at("images/arrow-down.png")" title="Order" class="btn_order desc" />
+	    		</th>
 	    		<th class="">REFERENCE</th>
 	    		<th class="sop">STAGE OF PROCESS</th>
-	    		<th class="tutor">TUTOR</th>
-	    		<th class="datetime_meeting">MEETING</th>
-	    		<th class="">OVERALL ATTENDANCE</th>
+	    		<th class="datetime_meeting">MEETING<br/>
+	    			<img src="@routes.Assets.at("images/arrowup.png")" title="Order" class="btn_order asc" />
+	    			<img src="@routes.Assets.at("images/arrow-down.png")" title="Order" class="btn_order desc" />
+	    		</th>
+	    		<th class="overall">OVERALL<br/>
+	    			<img src="@routes.Assets.at("images/arrowup.png")" title="Order" class="btn_order asc" />
+	    			<img src="@routes.Assets.at("images/arrow-down.png")" title="Order" class="btn_order desc" />
+	    		</th>
 	    	</thead>
 	    	<tbody>
 	    	</tbody>
@@ -33,7 +44,7 @@
 				<input type="hidden" name="stud_name" id="stud_name" />
 				<input type="hidden" name="id_meeting" id="id_meeting" />
 				<input type="hidden" name="cur_year" id="cur_year" />
-				<input type="hidden" name="year_tutor_uid" id="year_tutor_uid" />
+				<input type="hidden" name="responsible_uid" id="responsible_uid" />
 
 				<span>Student: <span id="meeting_for"></span></span>
 				<br />

@@ -9,7 +9,7 @@
 	margin:0 auto;
 }
 
-.report, .report th, .report td, .report tr{
+.report th, .report td, .report tr{
 	padding:0 10px;
 }
 
@@ -51,11 +51,7 @@ button.btn_filter{
 	font-weight: bold;
 }
 
-.hidden_container{
-	position:absolute;
-	top:113px;
-	left:682px;
-	background-color:gray;
+#hidden_filter{
 	display:none;
 }
 
@@ -71,10 +67,15 @@ textarea.outcome{
 
 .visible-row{
 	display:table-row;
+	cursor:pointer;
+}
+
+.visible-row:hover{
+	background-color: lightgray;
 }
 
 .odd-row{
-	background-color: lightgray;
+	background-color: #E8E8E8;
 }
 
 .even-row{
@@ -105,6 +106,17 @@ textarea.outcome{
 	display:none;
 }
 
+.btn_order, .btn_filter{
+	cursor:pointer;
+}
+
+.btn_order{
+	width:10px;
+}
+
+.btn_filter{
+	width:20px;
+}
 
 
 

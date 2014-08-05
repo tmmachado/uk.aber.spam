@@ -25,6 +25,7 @@ public class YearTutorController extends Controller{
 	
 	@SuppressWarnings("unchecked")
 	public static Result getJSON() throws SQLException {
+		Parameters.getParameters();
     	conn = DB.getConnection();
     	Statement stmt = null;
     	JSONArray jArray = new JSONArray();
@@ -35,7 +36,7 @@ public class YearTutorController extends Controller{
 					"v.stage_of_process, v.tutor_id, v.tutor_name, v.id_meeting, sm.responsible_id, sm.datetime " +
 					"FROM v_student_report v\n " +
 					"inner join v_recent_meeting sm on (v.id_meeting = sm.id) \n" +
-					"where sm.DATETIME is not null \n" +
+					"where upper(v.stage_of_process) = 'FIRST TIME' \n" +
 					"and upper(sm.status) = 'MEETING TO HAPPEN' \n" +
 					"order by v.name"
 			);
@@ -46,12 +47,10 @@ public class YearTutorController extends Controller{
 	            studJSON.put("email", rs.getString("email"));
 	            studJSON.put("overall", rs.getString("overall"));
 	            studJSON.put("stage_of_process", rs.getString("stage_of_process"));
-	            studJSON.put("tutor_id", rs.getString("tutor_id"));
-	            studJSON.put("tutor_name", rs.getString("tutor_name"));
 	            studJSON.put("datetime", rs.getString("datetime"));
 	            studJSON.put("id_meeting", rs.getString("id_meeting"));
 	            studJSON.put("academic_year", rs.getString("academic_year"));
-	            studJSON.put("responsible_id", rs.getString("responsible_id"));
+	            studJSON.put("responsible_uid", rs.getString("responsible_id"));
 	            jArray.add(studJSON);
 			}
 			conn.close();
@@ -92,7 +91,7 @@ public class YearTutorController extends Controller{
 				sql_stage_of_proccess =
 						"update spam_unsatisfactory_student \n" +
 						"set stage_of_process = '" + stage_of_proccess + "', \n" +
-						"	 responsible_id = '" + AdminController.DOT_UID + "'\n" +
+						"	 responsible_id = '" + Parameters.DOT_UID + "'\n" +
 						" where stud_ref = '" +  formArray.get("stud_ref") + 
 						"' and curr_year = '"+  formArray.get("cur_year") + "'";
 				
@@ -131,7 +130,7 @@ public class YearTutorController extends Controller{
 		}
 		
 		session("feedback", feedback);
-		return redirect(routes.Application.ytList()+"?ytUid="+formArray.get("year_tutor_uid"));
+		return redirect(routes.Application.ytList()+"?ytUid="+formArray.get("responsible_uid"));
 	}
 	
 	public static boolean emailAdmin(DynamicForm formArray){
@@ -139,8 +138,8 @@ public class YearTutorController extends Controller{
     		
     		String std_name = formArray.get("stud_name").split(", ")[1] + " " + formArray.get("stud_name").split(", ")[0];
 	    	MailerAPI mail = play.Play.application().plugin(MailerPlugin.class).email();
-	    	mail.setFrom(AdminController.ADMIN + AdminController.EMAIL_DOMAIN);
-	    	mail.setRecipient(AdminController.ADMIN + AdminController.EMAIL_DOMAIN);
+	    	mail.setFrom(AdminController.ADMIN + Parameters.EMAIL_DOMAIN);
+	    	mail.setRecipient(AdminController.ADMIN + Parameters.EMAIL_DOMAIN);
 	    	mail.setSubject(std_name);
 	    	String message = 
 	    			"Dear admistrator,<br/><br/>	" +

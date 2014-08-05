@@ -1,0 +1,71 @@
+@(message: String)
+
+@main("DOT List")(message) {
+	<script src="@routes.Assets.at("javascripts/script_dot.js")" type="text/javascript"></script>
+	<div class="main">
+	    <table class="report">
+	    	<caption>
+	    		<span class="table-title">Students with more than 50% absence</span>
+	    		<br />
+	    		From last 120 days
+	    	</caption>
+	    	<thead>
+	    		<th>Actions</th>
+	    		<th class="uid">UID<br/>
+	    			<img src="@routes.Assets.at("images/arrowup.png")" title="Order" class="btn_order asc" />
+	    			<img src="@routes.Assets.at("images/arrow-down.png")" title="Order" class="btn_order desc" />
+	    		</th>
+	    		<th class="name">NAME<br/>
+	    			<img src="@routes.Assets.at("images/arrowup.png")" title="Order" class="btn_order asc" />
+	    			<img src="@routes.Assets.at("images/arrow-down.png")" title="Order" class="btn_order desc" />
+	    		</th>
+	    		<th class="">REFERENCE</th>
+	    		<th class="sop">STAGE OF PROCESS</th>
+	    		<th class="datetime_meeting">MEETING<br/>
+	    			<img src="@routes.Assets.at("images/arrowup.png")" title="Order" class="btn_order asc" />
+	    			<img src="@routes.Assets.at("images/arrow-down.png")" title="Order" class="btn_order desc" />
+	    		</th>
+	    		<th class="overall">OVERALL<br/>
+	    			<img src="@routes.Assets.at("images/arrowup.png")" title="Order" class="btn_order asc" />
+	    			<img src="@routes.Assets.at("images/arrow-down.png")" title="Order" class="btn_order desc" />
+	    		</th>
+	    	</thead>
+	    	<tbody>
+	    	</tbody>
+	    </table>
+	</div>
+
+    <div id="hidden_actions" title="Outcome meeting">
+    	<div id="progressbar"></div>
+		<form id="form_outcome" action="@routes.DotController.updateOutcome()" method="post" >
+			<fieldset>
+				<input type="hidden" name="stud_ref" id="stud_ref" />
+				<input type="hidden" name="stud_uid" id="stud_uid" />
+				<input type="hidden" name="stud_name" id="stud_name" />
+				<input type="hidden" name="id_meeting" id="id_meeting" />
+				<input type="hidden" name="cur_year" id="cur_year" />
+				<input type="hidden" name="responsible_uid" id="responsible_uid" />
+
+				<span>Student: <span id="meeting_for"></span></span>
+				<br />
+				<input type="checkbox" id="absent" name="absent"/>Tick if student did not come<br />
+				<div id="form_group">
+					<label for="date">Date</label>
+					<input type="text" name="date" id="date" readonly="readonly"/>
+					<br />
+
+					<label for="hour">Time</label>
+					<input type="text" name="hours" id="hours" readonly="readonly" class="time-spinner" />:
+					<input type="text" name="minutes" id="minutes" readonly="readonly" class="time-spinner" />
+					<span class="example">(08:00 - 18:00)</span>
+					<br />
+
+					<label for="outcome">Outcome</label><br />
+					<textarea id="outcome" name="outcome" class="outcome"></textarea>
+				</div>
+
+				<input type="button" id="btn_updateOutcome" value="Submit" />
+			</fieldset>
+		</form>
+    </div>
+}

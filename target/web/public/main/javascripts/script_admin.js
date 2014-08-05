@@ -32,16 +32,30 @@ $(document).ready(function(){
 	$("#btn_sendEmail").click(function(e) {
 		if ($("#date").val() != "" && $("#location").val() != ""){
 			$("#progressbar").css("display", "block");
-			$("#arrange_meeting").submit();
-			$("#btn_sendEmail").prop('disabled', true);
+			setTimeout(function(){
+				$("#arrange_meeting").submit();
+				$("#btn_sendEmail").prop('disabled', true);
+				$("#date").prop('disabled', true);
+				$("#hours").spinner( "option", "disabled", true );
+				$("#minutes").spinner( "option", "disabled", true );
+				$("#location").prop('disabled', true);
+			}, 50);
 			return;
 		}
 		alert("You must fill all the fields!");
 	});
 
 	$(".btn_filter").click(function() {
-		changeDisplay($(".hidden_container"));
+		changeDisplay($("#hidden_filter"), "inline");
 		$("#hidden_filter").focus();
+	});
+
+	$(".asc").click(function() {
+		order($(this).parent().attr("class"), "tr", ".report tbody", "asc");
+	});
+
+	$(".desc").click(function() {
+		order($(this).parent().attr("class"), "tr", ".report tbody", "desc");
 	});
 
 	$("#hidden_filter").keyup(function(){
@@ -62,23 +76,22 @@ function openHiddenActionsDialog(btn_column){
 		if ($(this).attr('class') !== undefined && $(this).attr('class') == "uid"){
 			$("#meeting_for").text($(this).text());
 			$("#stud_uid").val($(this).text());
-			$("#meeting_with").text($(this).attr('yt_name') + ' (Year Tutor)');
-			$("#year_tutor_name").val($(this).attr('yt_name'));
-			$("#year_tutor_uid").val($(this).attr('yt_uid'));
+			$("#meeting_with").text($(this).attr('responsible_name') + " [" + $(this).attr('responsible_uid') + "]");
+			$("#responsible_uid").val($(this).attr('responsible_uid'));
+			$("#responsible_name").val($(this).attr('responsible_name'));
+			$("#stud_ref").val($(this).attr('stud_ref'));
 		}
 
 		if ($(this).attr('class') !== undefined && $(this).attr('class') == "name"){
 			$("#stud_name").val($(this).text());
 		}
 
-		if ($(this).attr('class') !== undefined && $(this).attr('class') == "stud_ref"){
-			$("#stud_ref").val($(this).text());
+		if ($(this).attr('class') !== undefined && $(this).attr('class') == "yos"){
+			$("#year_of_study").val($(this).text());
 		}
 
 		if ($(this).attr('class') !== undefined && $(this).attr('class') == "sop"){
-			if($(this).text().toUpperCase() != "FIRST TIME"){
-				$("#meeting_with").text('Tarcio Machado (DOT)');
-			}
+			$("#stage_of_process").val($(this).text());
 		}
 	});
 	actions_dialog.dialog("open");
