@@ -1,0 +1,76 @@
+@(message: String)
+
+@main("Student report")(message) {
+	<script src="@routes.Assets.at("javascripts/script_admin.js")" type="text/javascript"></script>
+	<div class="main">
+	    <table class="report">
+	    	<caption>
+	    		<span class="table-title">Students with more than 50% absence</span>
+	    		<br />
+	    		From last 120 days
+	    	</caption>
+	    	<thead>
+	    		<th>Actions</th>
+	    		<th class="uid">UID<br/>
+	    			<img src="@routes.Assets.at("images/arrowup.png")" title="Order" class="btn_order asc" />
+	    			<img src="@routes.Assets.at("images/arrow-down.png")" title="Order" class="btn_order desc" />
+	    		</th>
+	    		<th class="name">
+	    			NAME<br/>
+	    			<img src="@routes.Assets.at("images/arrowup.png")" title="Order" class="btn_order asc" />
+	    			<img src="@routes.Assets.at("images/arrow-down.png")" title="Order" class="btn_order desc" />
+	    		</th>
+	    		<th class="">COURSE</th>
+	    		<th class="">YEAR</th>
+	    		<th class="yos">
+	    			YEAR OF STUDY
+	    			<img src="@routes.Assets.at("images/filter.png")" title="Filter" class="btn_filter" />
+	    			<input id="hidden_filter" type="text" />
+	    		</th>
+	    		<th class="repeating">REPEATING</th>
+	    		<th class="sop">STAGE OF PROCESS</th>
+	    		<th class="">SESSIONS FOR PERIOD</th>
+	    		<th class="overall">
+	    			OVERALL<br/>
+	    			<img src="@routes.Assets.at("images/arrowup.png")" title="Order" class="btn_order asc" />
+	    			<img src="@routes.Assets.at("images/arrow-down.png")" title="Order" class="btn_order desc" />
+	    		</th>
+	    	</thead>
+	    	<tbody>
+	    	</tbody>
+	    </table>
+	</div>
+
+	    <div id="hidden_actions" title="Arrange meeting">
+	    	<div id="progressbar"></div>
+			<form id="arrange_meeting" action="@routes.AdminController.arrangeMeeting()" method="post" >
+				<fieldset>
+					<input type="hidden" name="stud_ref" id="stud_ref" />
+					<input type="hidden" name="stud_name" id="stud_name" />
+					<input type="hidden" name="stud_uid" id="stud_uid" />
+					<input type="hidden" name="responsible_uid" id="responsible_uid" />
+					<input type="hidden" name="responsible_name" id="responsible_name" />
+					<input type="hidden" name="year_of_study" id="year_of_study" />
+					<input type="hidden" name="stage_of_process" id="stage_of_process" />
+					<input type="hidden" name="responsible" id="responsible" />
+
+					For: <span id="meeting_for"></span><br />
+		    		With: <span id="meeting_with"></span><br />
+
+					<label for="date">Date</label>
+					<input type="text" name="date" id="date" readonly="readonly"/>
+					<br />
+					<label for="hour">Time</label>
+					<input type="text" name="hours" id="hours" value="08" readonly="readonly" class="time-spinner" />:
+					<input type="text" name="minutes" id="minutes" value="00" readonly="readonly" class="time-spinner" />
+					<span class="example">(08:00 - 18:00)</span>
+					<br />
+					<label for="location">Location</label>
+					<input type="text" name="location" id="location" />
+					<br />
+					<input type="button" id="btn_sendEmail" value="Submit" />
+				</fieldset>
+			</form>
+	    </div>
+
+}
