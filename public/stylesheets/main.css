@@ -2,9 +2,9 @@
 	margin:0 auto;
 	min-width:800px;
 	width:80%;
-	border:1px solid black;
 }
-.report{
+.report, .report caption{
+	border:1px solid black;
 	border-collapse:collapse;
 	margin:0 auto;
 }
@@ -118,14 +118,25 @@ textarea.outcome{
 	width:20px;
 }
 
+fieldset{
+	border: none;
+}
 
+.search{
+	font-size:20px;
+	text-align:center;
+}
 
+.search input{
+	font-size:20px;
+}
 
+section{
+	font-size:20px;
+}
 
-
-
-
-
-
+section.meeting{
+	border:1px solid black;
+}
 
 

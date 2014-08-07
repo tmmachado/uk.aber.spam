@@ -129,6 +129,32 @@ function getJson(url){
 				});
 		  	});
 		  	break;
+		 case "/summary":
+		 	var variables = "?stud_uid=" + $("#stud_uid").val() + "&academic_year=" + $("#academic_year").val();
+			$.getJSON("/json/summary"+variables, function( data ) {
+				$("main").append('<section>');
+					$("main").append('<h3>Student: <span class="stud_name">' + data[0]["stud_name"] +
+						'</span> [<span class="stud_uid">' + data[0]["stud_uid"] + '</span>]</h3>');
+					$("main").append('<div>Academic year: <span class="academic_year">' + data[0]["academic_year"] +
+						'</span></div>');
+					$("main").append('<div>Year of study: <span class="year_of_study">' + data[0]["year_of_study"] +
+						'</span></div>');
+					$("main").append('<div>Repeating: <span class="repeating">' + data[0]["repeating"] + '</span></div>');
+					$("main").append('<div>Stage of process: <span class="stage_of_process">' + data[0]["stage_of_process"] +
+						'</span></div>');
+				$.each(data, function(index, val) {
+
+					$("main").append('<section class="meeting">');
+					$("main").append('<div>Date/Time: <span class="datetime_meeting">' + $(this).get(0)["datetime_meeting"] +
+						'</span></div>');
+					$("main").append('<div>Responsible: <span class="responsible_name">' + $(this).get(0)["responsible_name"] +
+						'</span></div>');
+					$("main").append('<div>Outcome: <span class="outcome">' + $(this).get(0)["outcome"] + '</span></div>');
+					$("main").append('</section>');
+				});
+				$("main").append('</section>');
+		  	});
+		  	break;
 	}
 }
 

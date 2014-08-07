@@ -1,6 +1,6 @@
 // @SOURCE:/Users/TarcioMac/Development/PlayProjects/uk.aber.spam/conf/routes
-// @HASH:2809cc1156986d648d22b94273f7f32daee5eb59
-// @DATE:Tue Aug 05 15:55:26 BST 2014
+// @HASH:e03a3112c60574d71b1dd4dda8f4a7a06eb4c740
+// @DATE:Thu Aug 07 15:09:32 BST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,7 +15,9 @@ import _root_.play.libs.F
 import Router.queryString
 
 
-// @LINE:18
+// @LINE:20
+// @LINE:17
+// @LINE:16
 // @LINE:15
 // @LINE:14
 // @LINE:13
@@ -28,11 +30,11 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
-// @LINE:18
+// @LINE:20
 class ReverseAssets {
     
 
-// @LINE:18
+// @LINE:20
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
@@ -64,7 +66,7 @@ def getJSON(): Call = {
 }
                           
 
-// @LINE:12
+// @LINE:13
 // @LINE:10
 class ReverseYearTutorController {
     
@@ -76,7 +78,7 @@ def getJSON(): Call = {
 }
                         
 
-// @LINE:12
+// @LINE:13
 def updateOutcome(): Call = {
    import ReverseRouteContext.empty
    Call("POST", _prefix + { _defaultPrefix } + "ytList")
@@ -86,7 +88,7 @@ def updateOutcome(): Call = {
 }
                           
 
-// @LINE:14
+// @LINE:15
 // @LINE:11
 class ReverseDotController {
     
@@ -98,7 +100,7 @@ def getJSON(): Call = {
 }
                         
 
-// @LINE:14
+// @LINE:15
 def updateOutcome(): Call = {
    import ReverseRouteContext.empty
    Call("POST", _prefix + { _defaultPrefix } + "dotList")
@@ -108,12 +110,21 @@ def updateOutcome(): Call = {
 }
                           
 
-// @LINE:15
-// @LINE:13
+// @LINE:17
+// @LINE:16
+// @LINE:14
+// @LINE:12
 // @LINE:8
 // @LINE:6
 class ReverseApplication {
     
+
+// @LINE:16
+def dotList(): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "dotList")
+}
+                        
 
 // @LINE:8
 def studentReport(): Call = {
@@ -122,17 +133,24 @@ def studentReport(): Call = {
 }
                         
 
-// @LINE:13
+// @LINE:17
+def summary(): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "summary")
+}
+                        
+
+// @LINE:14
 def ytList(): Call = {
    import ReverseRouteContext.empty
    Call("GET", _prefix + { _defaultPrefix } + "ytList")
 }
                         
 
-// @LINE:15
-def dotList(): Call = {
+// @LINE:12
+def jsonSummary(stud_uid:String, academic_year:String): Call = {
    import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "dotList")
+   Call("GET", _prefix + { _defaultPrefix } + "json/summary" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("stud_uid", stud_uid)), Some(implicitly[QueryStringBindable[String]].unbind("academic_year", academic_year)))))
 }
                         
 
@@ -149,7 +167,9 @@ def index(): Call = {
                   
 
 
-// @LINE:18
+// @LINE:20
+// @LINE:17
+// @LINE:16
 // @LINE:15
 // @LINE:14
 // @LINE:13
@@ -163,11 +183,11 @@ def index(): Call = {
 package controllers.javascript {
 import ReverseRouteContext.empty
 
-// @LINE:18
+// @LINE:20
 class ReverseAssets {
     
 
-// @LINE:18
+// @LINE:20
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -211,7 +231,7 @@ def getJSON : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:12
+// @LINE:13
 // @LINE:10
 class ReverseYearTutorController {
     
@@ -227,7 +247,7 @@ def getJSON : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:12
+// @LINE:13
 def updateOutcome : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.YearTutorController.updateOutcome",
    """
@@ -241,7 +261,7 @@ def updateOutcome : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:14
+// @LINE:15
 // @LINE:11
 class ReverseDotController {
     
@@ -257,7 +277,7 @@ def getJSON : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:14
+// @LINE:15
 def updateOutcome : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.DotController.updateOutcome",
    """
@@ -271,12 +291,25 @@ def updateOutcome : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:15
-// @LINE:13
+// @LINE:17
+// @LINE:16
+// @LINE:14
+// @LINE:12
 // @LINE:8
 // @LINE:6
 class ReverseApplication {
     
+
+// @LINE:16
+def dotList : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.dotList",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "dotList"})
+      }
+   """
+)
+                        
 
 // @LINE:8
 def studentReport : JavascriptReverseRoute = JavascriptReverseRoute(
@@ -289,7 +322,18 @@ def studentReport : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:13
+// @LINE:17
+def summary : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.summary",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "summary"})
+      }
+   """
+)
+                        
+
+// @LINE:14
 def ytList : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.ytList",
    """
@@ -300,12 +344,12 @@ def ytList : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:15
-def dotList : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.dotList",
+// @LINE:12
+def jsonSummary : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.jsonSummary",
    """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "dotList"})
+      function(stud_uid,academic_year) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "json/summary" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("stud_uid", stud_uid), (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("academic_year", academic_year)])})
       }
    """
 )
@@ -328,7 +372,9 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:18
+// @LINE:20
+// @LINE:17
+// @LINE:16
 // @LINE:15
 // @LINE:14
 // @LINE:13
@@ -342,11 +388,11 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:18
+// @LINE:20
 class ReverseAssets {
     
 
-// @LINE:18
+// @LINE:20
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -375,7 +421,7 @@ def getJSON(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:12
+// @LINE:13
 // @LINE:10
 class ReverseYearTutorController {
     
@@ -386,7 +432,7 @@ def getJSON(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:12
+// @LINE:13
 def updateOutcome(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.YearTutorController.updateOutcome(), HandlerDef(this.getClass.getClassLoader, "", "controllers.YearTutorController", "updateOutcome", Seq(), "POST", """""", _prefix + """ytList""")
 )
@@ -395,7 +441,7 @@ def updateOutcome(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:14
+// @LINE:15
 // @LINE:11
 class ReverseDotController {
     
@@ -406,7 +452,7 @@ def getJSON(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:14
+// @LINE:15
 def updateOutcome(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.DotController.updateOutcome(), HandlerDef(this.getClass.getClassLoader, "", "controllers.DotController", "updateOutcome", Seq(), "POST", """""", _prefix + """dotList""")
 )
@@ -415,12 +461,20 @@ def updateOutcome(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:15
-// @LINE:13
+// @LINE:17
+// @LINE:16
+// @LINE:14
+// @LINE:12
 // @LINE:8
 // @LINE:6
 class ReverseApplication {
     
+
+// @LINE:16
+def dotList(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.dotList(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "dotList", Seq(), "GET", """""", _prefix + """dotList""")
+)
+                      
 
 // @LINE:8
 def studentReport(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
@@ -428,15 +482,21 @@ def studentReport(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:13
+// @LINE:17
+def summary(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.summary(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "summary", Seq(), "GET", """""", _prefix + """summary""")
+)
+                      
+
+// @LINE:14
 def ytList(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.ytList(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "ytList", Seq(), "GET", """""", _prefix + """ytList""")
 )
                       
 
-// @LINE:15
-def dotList(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.dotList(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "dotList", Seq(), "GET", """""", _prefix + """dotList""")
+// @LINE:12
+def jsonSummary(stud_uid:String, academic_year:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.jsonSummary(stud_uid, academic_year), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "jsonSummary", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """json/summary""")
 )
                       
 

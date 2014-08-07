@@ -28,7 +28,8 @@ public class Parameters {
 	public static  String EMAIL_SUBJECT_DOT = "";
 	public static  String EMAIL_BODY_DOT = "";
 	public static  String EMAIL_GREETING = "";
-	
+	public static  String EMAIL_BODY_ADMIN = "";
+	public static  String EMAIL_SUBJECT_ADMIN = "";
 	/**
 	 * Get and set the parameters from the system. These are coming from the table SPAM_PARAMETERS.
 	 * @throws SQLException 
@@ -61,7 +62,8 @@ public class Parameters {
 			EMAIL_SUBJECT_DOT = rs.getString("EMAIL_SUBJECT_DOT");
 			EMAIL_BODY_DOT = rs.getString("EMAIL_BODY_DOT");
 			EMAIL_GREETING = rs.getString("EMAIL_GREETING");
-			
+			EMAIL_SUBJECT_ADMIN = rs.getString("EMAIL_SUBJECT_ADMIN");
+			EMAIL_BODY_ADMIN = rs.getString("EMAIL_BODY_ADMIN");
 			conn.close();
 		 	
 		} catch (Exception e) {

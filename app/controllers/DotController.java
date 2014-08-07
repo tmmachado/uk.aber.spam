@@ -96,13 +96,13 @@ public class DotController extends Controller{
 				
 				sql = sql_meeting + ";\n " + sql_stage_of_proccess;
 				System.out.println(sql);
-				stmt.executeQuery(sql_meeting);
-				stmt.executeQuery(sql_stage_of_proccess);
+//				stmt.executeQuery(sql_meeting);
+//				stmt.executeQuery(sql_stage_of_proccess);
 				
 				//send an email with student name back to the admin to arrange a new meeting
-				if(emailAdmin(formArray)){
-					stmt.executeQuery("commit");
-				}
+				//if(Application.sendEmail(formArray, "admin", false)){
+//					stmt.executeQuery("commit");
+				//}
 			} else {
 				stud_absent = "student attended";
 				sql_meeting =
@@ -113,8 +113,8 @@ public class DotController extends Controller{
 						"where sm.ID = " + formArray.get("id_meeting");
 				sql = sql_meeting;
 				System.out.println(sql);
-				stmt.executeQuery(sql);
-				stmt.executeQuery("COMMIT");
+//				stmt.executeQuery(sql);
+//				stmt.executeQuery("COMMIT");
 			}
 			
 			feedback = "Submited successfully!";
@@ -131,26 +131,4 @@ public class DotController extends Controller{
 		session("feedback", feedback);
 		return redirect(routes.Application.dotList()+"?dotUid="+formArray.get("responsible_uid"));
 	}
-	
-	public static boolean emailAdmin(DynamicForm formArray){
-    	try {
-    		
-    		String std_name = formArray.get("stud_name").split(", ")[1] + " " + formArray.get("stud_name").split(", ")[0];
-	    	MailerAPI mail = play.Play.application().plugin(MailerPlugin.class).email();
-	    	mail.setFrom(AdminController.ADMIN + Parameters.EMAIL_DOMAIN);
-	    	mail.setRecipient(AdminController.ADMIN + Parameters.EMAIL_DOMAIN);
-	    	mail.setSubject(std_name);
-	    	String message = 
-	    			"Dear admistrator,<br/><br/>	" +
-	    	    			"The following student has not attended the previous meeting: <br /><br /> \n" +
-	    	    			"<a href='http://localhost:9000/studentReport?stdUid=" + formArray.get("stud_uid") + "'>"+std_name+"</a>" +
-	    			    	"<br/><br/>" +
-	    					"Cheers,<br/>The SPAM SYSTEM";
-	    	//mail.send("", message);
-	    	return true;
-    	} catch (Exception e) {
-    		System.out.println("email error");
-    		return false;
-		}
-    }
 }

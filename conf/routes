@@ -9,10 +9,12 @@ GET     /studentReport              controllers.Application.studentReport()
 GET     /json/admin				    controllers.AdminController.getJSON()
 GET     /json/yt				    controllers.YearTutorController.getJSON()
 GET     /json/dot				    controllers.DotController.getJSON()
+GET     /json/summary				controllers.Application.jsonSummary(stud_uid: String, academic_year: String)
 POST	/ytList						controllers.YearTutorController.updateOutcome()
 GET     /ytList			            controllers.Application.ytList()
 POST	/dotList					controllers.DotController.updateOutcome()
 GET     /dotList			        controllers.Application.dotList()
+GET     /summary			        controllers.Application.summary()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

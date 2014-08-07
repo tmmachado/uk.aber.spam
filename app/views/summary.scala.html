@@ -1,0 +1,20 @@
+@(message: String)
+
+@main("Meetings summary")(message) {
+	<script src="@routes.Assets.at("javascripts/script_summary.js")" type="text/javascript"></script>
+	<div class="main">
+		<!-- <form id="form_search" class="search" action="" method="post"> -->
+			<fieldset class="search">
+				<label for="stud_uid">Student UID</label>
+				<input type="text" name="stud_uid" id="stud_uid" />
+
+				<label for="date">Academic year</label>
+				<input type="text" name="academic_year" id="academic_year" />
+
+				<input type="submit" id="btn_search" value="Search" />
+			</fieldset>
+		<!-- </form> -->
+		<main>
+		</main>
+	</div>
+}
