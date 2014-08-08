@@ -205,7 +205,7 @@ public class Application extends Controller {
  			
  			mail.setFrom(Parameters.ADMIN_UID + Parameters.EMAIL_DOMAIN);
 	    	mail.setSubject(email_subject);
-	    	//mail.send("", email_body);
+	    	mail.send("", email_body);
 	    	System.out.println(responsible_uid+"\n\n"+email_body);
  	    	
 			return true;	

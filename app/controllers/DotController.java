@@ -96,13 +96,13 @@ public class DotController extends Controller{
 				
 				sql = sql_meeting + ";\n " + sql_stage_of_proccess;
 				System.out.println(sql);
-//				stmt.executeQuery(sql_meeting);
-//				stmt.executeQuery(sql_stage_of_proccess);
+				stmt.executeQuery(sql_meeting);
+				stmt.executeQuery(sql_stage_of_proccess);
 				
 				//send an email with student name back to the admin to arrange a new meeting
-				//if(Application.sendEmail(formArray, "admin", false)){
-//					stmt.executeQuery("commit");
-				//}
+				if(Application.sendEmail(formArray, "admin", false)){
+					stmt.executeQuery("commit");
+				}
 			} else {
 				stud_absent = "student attended";
 				sql_meeting =
